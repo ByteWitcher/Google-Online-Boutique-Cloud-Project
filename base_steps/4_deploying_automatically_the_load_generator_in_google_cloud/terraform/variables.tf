@@ -13,7 +13,7 @@ variable "zone" {
   default = "europe-west6-a"
 }
 
-variable "instance-name" {
+variable "instance_name" {
   type    = string
   default = "loadgenerator-vm"
 }

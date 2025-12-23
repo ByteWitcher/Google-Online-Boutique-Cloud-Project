@@ -9,8 +9,8 @@ gcloud iam service-accounts create shopapp-terraform-account
 gcloud projects add-iam-policy-binding $PROJECT_NAME --member serviceAccount:shopapp-terraform-account@$PROJECT_NAME.iam.gserviceaccount.com --role roles/editor
 
 # Create and download service account key
-mkdir -p base-steps/4-deploying-automatically-the-load-generator-in-google-cloud/terraform/credentials
-cd base-steps/4-deploying-automatically-the-load-generator-in-google-cloud/terraform/credentials
+mkdir -p base_steps/4_deploying_automatically_the_load_generator_in_google_cloud/terraform/credentials
+cd base_steps/4_deploying_automatically_the_load_generator_in_google_cloud/terraform/credentials
 gcloud iam service-accounts keys create ./shopapp-terraform-account.json --iam-account shopapp-terraform-account@$PROJECT_NAME.iam.gserviceaccount.com
 
 cd ..
