@@ -1,0 +1,5 @@
+microservices-demo
+terraform.tfstate
+terraform.tfstate.backup
+.terraform
+credentials
