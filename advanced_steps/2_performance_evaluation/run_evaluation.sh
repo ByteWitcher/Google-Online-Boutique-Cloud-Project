@@ -1,39 +1,66 @@
 #!/bin/bash
+set -e
 
-# Set variables
-VM_IP="$1"          # Pass the VM IP as first argument
-SSH_KEY="~/.ssh/id_rsa"  # Path to your SSH private key
-REMOTE_CSV_PATH="/tmp/results/locust_${USERS:-10}.csv"
-LOCAL_DIR="./results"
+# Check arguments
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 <users> <run_time>"
+  exit 1
+fi
 
+USERS="$1"
+RUN_TIME="$2"
+
+# Get project name
+export PROJECT_NAME=$(gcloud config get-value project)
+
+SERVICE_ACCOUNT="shopapp-terraform-account@$PROJECT_NAME.iam.gserviceaccount.com"
+CREDENTIALS_PATH="advanced_steps/2_performance_evaluation/terraform/credentials/shopapp-terraform-account.json"
+VM_NAME=loadgenerator-vm
+REMOTE_DIR="/tmp/results"
+LOCAL_DIR="../results/users_$USERS"
+
+# Create credentials and local results directories
+mkdir -p advanced_steps/2_performance_evaluation/terraform/credentials
 mkdir -p "$LOCAL_DIR"
 
-echo "Waiting for CSV to be generated on VM ($VM_IP)..."
-
-while true; do
-  # Check if the CSV exists on the remote VM
-  ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no "ubuntu@$VM_IP" "test -f $REMOTE_CSV_PATH"
-  
-  if [ $? -eq 0 ]; then
-    echo "CSV found! Downloading..."
-    
-    # Copy the CSV locally
-    scp -i "$SSH_KEY" "ubuntu@$VM_IP:$REMOTE_CSV_PATH" "$LOCAL_DIR/"
-    
-    if [ $? -eq 0 ]; then
-      echo "CSV successfully downloaded to $LOCAL_DIR"
-      break
-    else
-      echo "Failed to download CSV. Retrying..."
-    fi
+# Check if credentials file exists
+if [ ! -f "$CREDENTIALS_PATH" ]; then
+  # Check if service account exists
+  if ! gcloud iam service-accounts describe "$SERVICE_ACCOUNT" >/dev/null 2>&1; then
+    # Create service account and assign roles
+    gcloud iam service-accounts create shopapp-terraform-account
+    gcloud projects add-iam-policy-binding "$PROJECT_NAME" --member "serviceAccount:$SERVICE_ACCOUNT" --role roles/editor
   else
-    echo "CSV not yet present. Sleeping for 15 seconds..."
-    sleep 15
+    echo "Service account $SERVICE_ACCOUNT already exists."
   fi
+
+  # Create and download service account key
+  gcloud iam service-accounts keys create "$CREDENTIALS_PATH" --iam-account "$SERVICE_ACCOUNT"
+else
+  echo "Credentials file already exists at $CREDENTIALS_PATH"
+fi
+
+cd advanced_steps/2_performance_evaluation/terraform
+
+# Initialize and apply Terraform
+terraform init 
+terraform apply -var="frontend_ip=$FRONTEND_ADDR" -var="users=$USERS" -var="run_time=$RUN_TIME" -auto-approve
+
+# Wait until at least one CSV exists on VM
+echo "Waiting for CSV files to be generated on VM..."
+while ! gcloud compute ssh "$VM_NAME" --command "ls $REMOTE_DIR/*.csv" >/dev/null 2>&1; do
+  sleep 5
 done
 
-# Destroy Terraform deployment
-echo "Destroying Terraform deployment..."
-terraform destroy -auto-approve
+echo "CSV files found! Copying to local machine..."
 
-echo "All done!"
+# Copy all CSV files locally
+gcloud compute scp "$VM_NAME:$REMOTE_DIR/*.csv" "$LOCAL_DIR/"
+
+echo "All CSV files copied to $LOCAL_DIR/"
+
+# Destroy Terraform resources
+echo "Destroying Terraform resources..."
+terraform destroy -var="frontend_ip=$FRONTEND_ADDR" -var="users=$USERS" -var="run_time=$RUN_TIME" -auto-approve
+
+echo "Evaluation complete!"

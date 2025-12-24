@@ -39,18 +39,20 @@ resource "google_compute_instance" "vm_instance" {
   cd microservices-demo/src/loadgenerator
 
   # Modify Dockerfile
-  sed -i 's/--platform=\\$BUILDPLATFORM //' Dockerfile
+  sed -i 's/--platform=\$BUILDPLATFORM //' Dockerfile
 
   # Modify ENTRYPOINT to use environment variables
-  sed -i "s|^ENTRYPOINT locust .*|ENTRYPOINT locust --host='http://$${FRONTEND_ADDR}' --headless -u \"$${USERS:-10}\" -r \"$${RATE:-1}\" --csv=/tmp/results/locust_$${USERS:-10} --run-time \"$${RUN_TIME:-5m}\" 2>&1|" Dockerfile
+  sed -i '/^ENTRYPOINT /d' Dockerfile
+
+  cat <<'EOF' >> Dockerfile
+  ENTRYPOINT ["sh","-c","locust --host=http://$${FRONTEND_ADDR} --headless -u $${USERS:-10} -r $${RATE:-1} -t $${RUN_TIME:-5m} --csv /tmp/results/locust_$${USERS:-10}"]
+  EOF
+
+  mkdir -p /tmp/results
 
   # Build and run container
   docker build -t loadgenerator .
-  docker run --rm -e FRONTEND_ADDR=${var.frontend_ip} -e USERS=${var.users} -e RUN_TIME=${var.run_time} loadgenerator
+  docker run --rm -e FRONTEND_ADDR=${var.frontend_ip} -e USERS=${var.users} -e RUN_TIME=${var.run_time} -v /tmp/results:/tmp/results loadgenerator
   EOT
 
-}
-
-output "ip" {
-  value = "${google_compute_instance.vm_instance.network_interface.0.access_config.0.nat_ip}"
 }
