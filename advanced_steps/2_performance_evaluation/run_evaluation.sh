@@ -17,11 +17,10 @@ SERVICE_ACCOUNT="shopapp-terraform-account@$PROJECT_NAME.iam.gserviceaccount.com
 CREDENTIALS_PATH="advanced_steps/2_performance_evaluation/terraform/credentials/shopapp-terraform-account.json"
 VM_NAME=loadgenerator-vm
 REMOTE_DIR="/tmp/results"
-LOCAL_DIR="../results/users_$USERS"
 
 # Create credentials and local results directories
 mkdir -p advanced_steps/2_performance_evaluation/terraform/credentials
-mkdir -p "$LOCAL_DIR"
+mkdir -p "advanced_steps/2_performance_evaluation/results/users_$USERS"
 
 # Check if credentials file exists
 if [ ! -f "$CREDENTIALS_PATH" ]; then
@@ -55,9 +54,9 @@ done
 echo "CSV files found! Copying to local machine..."
 
 # Copy all CSV files locally
-gcloud compute scp "$VM_NAME:$REMOTE_DIR/*.csv" "$LOCAL_DIR/"
+gcloud compute scp "$VM_NAME:$REMOTE_DIR/*.csv" "../results/users_$USERS/"
 
-echo "All CSV files copied to $LOCAL_DIR/"
+echo "All CSV files copied"
 
 # Destroy Terraform resources
 echo "Destroying Terraform resources..."

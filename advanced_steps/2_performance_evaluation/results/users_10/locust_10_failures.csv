@@ -1,0 +1,10 @@
+Method,Name,Error,Occurrences
+POST,/setCurrency,"gaierror(-2, 'Name does not resolve')",1
+GET,/product/LS4PSXUNUM,"gaierror(-2, 'Name does not resolve')",4
+GET,/product/2ZYFJ3GM2N,"gaierror(-2, 'Name does not resolve')",1
+GET,/product/66VCHSJNUP,"gaierror(-2, 'Name does not resolve')",1
+GET,/,"gaierror(-2, 'Name does not resolve')",9
+GET,/product/L9ECAV7KIM,"gaierror(-2, 'Name does not resolve')",3
+GET,/product/6E92ZMYYFZ,"gaierror(-2, 'Name does not resolve')",2
+POST,/cart,"gaierror(-2, 'Name does not resolve')",4
+GET,/product/OLJCESPC7Z,"gaierror(-2, 'Name does not resolve')",1
