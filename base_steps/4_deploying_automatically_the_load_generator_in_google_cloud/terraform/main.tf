@@ -33,7 +33,7 @@ resource "google_compute_instance" "vm_instance" {
     systemctl start docker
     systemctl enable docker
 
-    # Clone the project and move to the loadgenerator folder
+    # Clone the project
     cd /tmp
     git clone --depth 1 --branch v0 https://github.com/GoogleCloudPlatform/microservices-demo.git
     cd microservices-demo/src/loadgenerator

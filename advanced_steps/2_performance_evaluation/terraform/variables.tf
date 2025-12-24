@@ -27,7 +27,17 @@ variable "users" {
   default = 10
 }
 
+variable "rate" {
+  type    = number
+  default = 1
+}
+
 variable "run_time" {
   type    = string
   default = "5m"
+}
+
+variable "num_workers" {
+  type    = number
+  default = 2
 }

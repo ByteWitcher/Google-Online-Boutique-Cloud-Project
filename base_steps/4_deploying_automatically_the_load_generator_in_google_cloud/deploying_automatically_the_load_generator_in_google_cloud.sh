@@ -17,7 +17,7 @@ if [ ! -f "$CREDENTIALS_PATH" ]; then
     gcloud iam service-accounts create shopapp-terraform-account
     gcloud projects add-iam-policy-binding "$PROJECT_NAME" --member "serviceAccount:$SERVICE_ACCOUNT" --role roles/editor
   else
-    echo "Service account $SERVICE_ACCOUNT already exists."
+    echo "Service account $SERVICE_ACCOUNT already exists"
   fi
 
   # Create and download service account key
@@ -25,6 +25,8 @@ if [ ! -f "$CREDENTIALS_PATH" ]; then
 else
   echo "Credentials file already exists at $CREDENTIALS_PATH"
 fi
+
+cd base_steps/4_deploying_automatically_the_load_generator_in_google_cloud/terraform
 
 # Initialize and apply Terraform
 terraform init 
