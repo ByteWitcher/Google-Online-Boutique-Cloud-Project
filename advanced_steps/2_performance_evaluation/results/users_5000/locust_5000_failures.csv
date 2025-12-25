@@ -1,0 +1,44 @@
+Method,Name,Error,Occurrences
+GET,/product/LS4PSXUNUM,HTTPParseError('Incomplete response.'),3
+GET,/product/66VCHSJNUP,"RetriesExceeded('http://34.158.24.97/product/66VCHSJNUP', 0, original=timed out)",873
+POST,/cart/checkout,"RetriesExceeded('http://34.158.24.97/cart/checkout', 0, original=timed out)",248
+GET,/product/2ZYFJ3GM2N,"ConnectionRefusedError(111, 'Connection refused')",256
+GET,/product/0PUK6V6EV0,"ConnectionRefusedError(111, 'Connection refused')",275
+GET,/product/1YMWWN1N4O,"ConnectionRefusedError(111, 'Connection refused')",295
+GET,/product/OLJCESPC7Z,"ConnectionRefusedError(111, 'Connection refused')",282
+GET,/product/L9ECAV7KIM,HTTPParseError('Incomplete response.'),5
+POST,/cart,"ConnectionRefusedError(111, 'Connection refused')",609
+GET,/product/0PUK6V6EV0,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/,"ConnectionRefusedError(111, 'Connection refused')",607
+POST,/setCurrency,"ConnectionRefusedError(111, 'Connection refused')",396
+GET,/product/LS4PSXUNUM,"RetriesExceeded('http://34.158.24.97/product/LS4PSXUNUM', 0, original=timed out)",863
+POST,/setCurrency,"RetriesExceeded('http://34.158.24.97/setCurrency', 0, original=timed out)",1208
+GET,/product/L9ECAV7KIM,"RetriesExceeded('http://34.158.24.97/product/L9ECAV7KIM', 0, original=timed out)",923
+GET,/,"ConnectionResetError(104, 'Connection reset by peer')",6
+GET,/product/LS4PSXUNUM,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/product/OLJCESPC7Z,HTTPParseError('Incomplete response.'),3
+POST,/cart/checkout,"ConnectionRefusedError(111, 'Connection refused')",183
+GET,/product/66VCHSJNUP,"ConnectionRefusedError(111, 'Connection refused')",279
+POST,/cart,"RetriesExceeded('http://34.158.24.97/cart', 0, original=timed out)",1202
+GET,/product/1YMWWN1N4O,"RetriesExceeded('http://34.158.24.97/product/1YMWWN1N4O', 0, original=timed out)",829
+GET,/product/1YMWWN1N4O,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/cart,"ConnectionRefusedError(111, 'Connection refused')",590
+GET,/product/OLJCESPC7Z,"RetriesExceeded('http://34.158.24.97/product/OLJCESPC7Z', 0, original=timed out)",902
+GET,/product/2ZYFJ3GM2N,HTTPParseError('Incomplete response.'),2
+GET,/product/9SIQT8TOJO,"RetriesExceeded('http://34.158.24.97/product/9SIQT8TOJO', 0, original=timed out)",876
+GET,/product/9SIQT8TOJO,HTTPParseError('Incomplete response.'),8
+GET,/product/OLJCESPC7Z,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/product/6E92ZMYYFZ,"RetriesExceeded('http://34.158.24.97/product/6E92ZMYYFZ', 0, original=timed out)",844
+GET,/cart,"RetriesExceeded('http://34.158.24.97/cart', 0, original=timed out)",1895
+GET,/product/9SIQT8TOJO,"ConnectionRefusedError(111, 'Connection refused')",274
+GET,/product/6E92ZMYYFZ,HTTPParseError('Incomplete response.'),4
+GET,/product/1YMWWN1N4O,HTTPParseError('Incomplete response.'),3
+GET,/product/0PUK6V6EV0,HTTPParseError('Incomplete response.'),3
+GET,/product/6E92ZMYYFZ,"ConnectionRefusedError(111, 'Connection refused')",297
+GET,/,"RetriesExceeded('http://34.158.24.97/', 0, original=timed out)",5196
+GET,/product/0PUK6V6EV0,"RetriesExceeded('http://34.158.24.97/product/0PUK6V6EV0', 0, original=timed out)",895
+GET,/product/L9ECAV7KIM,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/product/L9ECAV7KIM,"ConnectionRefusedError(111, 'Connection refused')",304
+GET,/cart,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/product/LS4PSXUNUM,"ConnectionRefusedError(111, 'Connection refused')",287
+GET,/product/2ZYFJ3GM2N,"RetriesExceeded('http://34.158.24.97/product/2ZYFJ3GM2N', 0, original=timed out)",837

@@ -12,12 +12,9 @@ RESULTS_CSV="advanced_steps/2_performance_evaluation/results/experiment_times.cs
 
 # Define experiments
 experiments=(
-  "E1,10,1,5m"
-  "E2,25,2,5m"
-  "E3,50,5,5m"
-  "E4,100,10,5m"
-  "E5,200,20,5m"
-  "E6,300,30,5m"
+  "E16,700,70,5m"
+  "E17,800,80,5m"
+  "E18,900,90,5m"
 )
 
 # Create credentials and results directories if they don't exist
@@ -114,9 +111,9 @@ done
 
 echo "All experiments completed. Results saved to $RESULTS_CSV"
 
-# # Destroy Terraform resources (Disable if you want to view Grafana after tests)
+# Destroy Terraform resources
 cd advanced_steps/2_performance_evaluation/terraform
-# terraform destroy -auto-approve
+terraform destroy -auto-approve
 
 
 # Generate plots
