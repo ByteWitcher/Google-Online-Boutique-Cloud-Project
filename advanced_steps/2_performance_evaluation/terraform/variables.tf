@@ -18,25 +18,6 @@ variable "instance_name" {
   default = "loadgenerator-vm"
 }
 
-variable "frontend_ip" {
-  type = string
-}
-
-variable "users" {
-  type    = number
-  default = 10
-}
-
-variable "rate" {
-  type    = number
-  default = 1
-}
-
-variable "run_time" {
-  type    = string
-  default = "5m"
-}
-
 variable "num_workers" {
   type    = number
   default = 2

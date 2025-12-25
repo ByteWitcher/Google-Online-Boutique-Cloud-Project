@@ -51,7 +51,6 @@ resource "google_compute_instance" "vm_instance_master" {
 
   # Build and run container
   docker build -t loadgenerator .
-  docker run --name locust-master --rm -p 5557:5557 -e FRONTEND_ADDR=${var.frontend_ip} -e USERS=${var.users} -e RATE=${var.rate} -e RUN_TIME=${var.run_time} -v /tmp/results:/tmp/results loadgenerator &> /tmp/docker-output.txt
   EOT
 
 }
@@ -60,7 +59,7 @@ resource "google_compute_instance" "vm_instance_worker" {
 
   count = var.num_workers
 
-  name  = "${var.instance_name}-worker-${count.index+1}"
+  name = "${var.instance_name}-worker-${count.index + 1}"
 
   machine_type = "e2-medium"
 
@@ -104,10 +103,14 @@ resource "google_compute_instance" "vm_instance_worker" {
 
   # Build and run container
   docker build -t loadgenerator .
-
-  MASTER_IP_ADDRESS=${google_compute_instance.vm_instance_master.network_interface[0].network_ip}
-
-  docker run --rm -e MASTER_IP_ADDRESS=$MASTER_IP_ADDRESS loadgenerator &> /tmp/docker-output.txt
   EOT
 
+}
+
+output "master_ip_address" {
+  value = google_compute_instance.vm_instance_master.network_interface[0].network_ip
+}
+
+output "num_workers" {
+  value = var.num_workers
 }
