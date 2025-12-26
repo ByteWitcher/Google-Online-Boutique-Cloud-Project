@@ -1,52 +1,52 @@
 Method,Name,Error,Occurrences
-GET,/product/1YMWWN1N4O,LocustBadStatusCode(code=500),205
-POST,/setCurrency,"ConnectionResetError(104, 'Connection reset by peer')",5
-GET,/product/2ZYFJ3GM2N,"ConnectionRefusedError(111, 'Connection refused')",45
-POST,/setCurrency,LocustBadStatusCode(code=500),259
-GET,/product/0PUK6V6EV0,"ConnectionRefusedError(111, 'Connection refused')",65
-GET,/product/0PUK6V6EV0,LocustBadStatusCode(code=500),218
-GET,/product/1YMWWN1N4O,"ConnectionRefusedError(111, 'Connection refused')",54
-GET,/product/OLJCESPC7Z,"ConnectionRefusedError(111, 'Connection refused')",57
+GET,/product/1YMWWN1N4O,LocustBadStatusCode(code=500),656
+POST,/setCurrency,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/product/LS4PSXUNUM,HTTPParseError('Incomplete response.'),4
+GET,/product/2ZYFJ3GM2N,"ConnectionRefusedError(111, 'Connection refused')",96
+POST,/setCurrency,LocustBadStatusCode(code=500),949
+GET,/product/0PUK6V6EV0,"ConnectionRefusedError(111, 'Connection refused')",92
+GET,/product/0PUK6V6EV0,LocustBadStatusCode(code=500),657
+GET,/product/1YMWWN1N4O,"ConnectionRefusedError(111, 'Connection refused')",98
+GET,/product/OLJCESPC7Z,"ConnectionRefusedError(111, 'Connection refused')",96
 GET,/product/L9ECAV7KIM,HTTPParseError('Incomplete response.'),3
-POST,/cart,"ConnectionRefusedError(111, 'Connection refused')",247
-GET,/product/0PUK6V6EV0,"ConnectionResetError(104, 'Connection reset by peer')",2
-GET,/,"ConnectionRefusedError(111, 'Connection refused')",100
-POST,/setCurrency,"ConnectionRefusedError(111, 'Connection refused')",191
-POST,/cart,HTTPParseError('Incomplete response.'),30
-POST,/cart,LocustBadStatusCode(code=500),305
-GET,/cart,LocustBadStatusCode(code=500),433
-GET,/,"ConnectionResetError(104, 'Connection reset by peer')",2
-GET,/product/LS4PSXUNUM,"ConnectionResetError(104, 'Connection reset by peer')",3
-GET,/product/OLJCESPC7Z,HTTPParseError('Incomplete response.'),1
-GET,/product/L9ECAV7KIM,LocustBadStatusCode(code=500),207
-POST,/cart/checkout,"ConnectionRefusedError(111, 'Connection refused')",116
-GET,/cart,HTTPParseError('Incomplete response.'),11
-GET,/product/66VCHSJNUP,"ConnectionRefusedError(111, 'Connection refused')",75
-GET,/,LocustBadStatusCode(code=500),1620
-GET,/product/66VCHSJNUP,LocustBadStatusCode(code=500),194
-GET,/product/9SIQT8TOJO,"ConnectionResetError(104, 'Connection reset by peer')",2
-GET,/product/2ZYFJ3GM2N,"ConnectionResetError(104, 'Connection reset by peer')",1
-GET,/product/2ZYFJ3GM2N,LocustBadStatusCode(code=500),194
-GET,/cart,"ConnectionRefusedError(111, 'Connection refused')",127
-GET,/product/OLJCESPC7Z,LocustBadStatusCode(code=500),225
-GET,/product/2ZYFJ3GM2N,HTTPParseError('Incomplete response.'),5
-GET,/product/6E92ZMYYFZ,LocustBadStatusCode(code=500),190
-GET,/product/9SIQT8TOJO,HTTPParseError('Incomplete response.'),2
-GET,/product/OLJCESPC7Z,"ConnectionResetError(104, 'Connection reset by peer')",1
-POST,/cart/checkout,LocustBadStatusCode(code=500),96
-GET,/,HTTPParseError('Incomplete response.'),3
+POST,/cart,"ConnectionRefusedError(111, 'Connection refused')",467
+GET,/,"ConnectionRefusedError(111, 'Connection refused')",108
+POST,/setCurrency,"ConnectionRefusedError(111, 'Connection refused')",279
+POST,/cart,HTTPParseError('Incomplete response.'),1
+POST,/cart,LocustBadStatusCode(code=500),1258
+GET,/cart,LocustBadStatusCode(code=500),1407
+GET,/product/OLJCESPC7Z,HTTPParseError('Incomplete response.'),2
+GET,/product/L9ECAV7KIM,LocustBadStatusCode(code=500),664
+POST,/cart/checkout,"ConnectionRefusedError(111, 'Connection refused')",173
+GET,/cart,HTTPParseError('Incomplete response.'),1
+GET,/product/6E92ZMYYFZ,"ConnectionResetError(104, 'Connection reset by peer')",3
+GET,/product/66VCHSJNUP,"ConnectionRefusedError(111, 'Connection refused')",88
+GET,/,LocustBadStatusCode(code=500),1943
+GET,/product/66VCHSJNUP,LocustBadStatusCode(code=500),654
+GET,/product/1YMWWN1N4O,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/product/9SIQT8TOJO,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/product/2ZYFJ3GM2N,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/product/2ZYFJ3GM2N,LocustBadStatusCode(code=500),672
+GET,/cart,"ConnectionRefusedError(111, 'Connection refused')",207
+GET,/product/OLJCESPC7Z,LocustBadStatusCode(code=500),677
+GET,/product/2ZYFJ3GM2N,HTTPParseError('Incomplete response.'),4
+GET,/product/6E92ZMYYFZ,LocustBadStatusCode(code=500),668
+GET,/product/9SIQT8TOJO,HTTPParseError('Incomplete response.'),3
+GET,/product/OLJCESPC7Z,"ConnectionResetError(104, 'Connection reset by peer')",2
+POST,/cart/checkout,LocustBadStatusCode(code=500),575
 POST,/cart,"ConnectionResetError(104, 'Connection reset by peer')",5
-POST,/cart/checkout,HTTPParseError('Incomplete response.'),15
-GET,/product/9SIQT8TOJO,"ConnectionRefusedError(111, 'Connection refused')",59
+POST,/cart/checkout,HTTPParseError('Incomplete response.'),12
+GET,/product/9SIQT8TOJO,"ConnectionRefusedError(111, 'Connection refused')",74
 GET,/product/6E92ZMYYFZ,HTTPParseError('Incomplete response.'),2
-GET,/product/1YMWWN1N4O,HTTPParseError('Incomplete response.'),3
-GET,/product/LS4PSXUNUM,LocustBadStatusCode(code=500),192
-GET,/product/0PUK6V6EV0,HTTPParseError('Incomplete response.'),4
-GET,/product/6E92ZMYYFZ,"ConnectionRefusedError(111, 'Connection refused')",52
-GET,/product/L9ECAV7KIM,"ConnectionResetError(104, 'Connection reset by peer')",2
-POST,/setCurrency,HTTPParseError('Incomplete response.'),4
-GET,/product/L9ECAV7KIM,"ConnectionRefusedError(111, 'Connection refused')",47
-GET,/cart,"ConnectionResetError(104, 'Connection reset by peer')",5
-GET,/product/LS4PSXUNUM,"ConnectionRefusedError(111, 'Connection refused')",55
-GET,/product/66VCHSJNUP,HTTPParseError('Incomplete response.'),4
-GET,/product/9SIQT8TOJO,LocustBadStatusCode(code=500),184
+GET,/product/1YMWWN1N4O,HTTPParseError('Incomplete response.'),6
+POST,/cart/checkout,"ConnectionResetError(104, 'Connection reset by peer')",1
+GET,/product/LS4PSXUNUM,LocustBadStatusCode(code=500),635
+GET,/product/0PUK6V6EV0,HTTPParseError('Incomplete response.'),2
+GET,/product/6E92ZMYYFZ,"ConnectionRefusedError(111, 'Connection refused')",86
+GET,/product/L9ECAV7KIM,"ConnectionResetError(104, 'Connection reset by peer')",1
+POST,/setCurrency,HTTPParseError('Incomplete response.'),3
+GET,/product/L9ECAV7KIM,"ConnectionRefusedError(111, 'Connection refused')",96
+GET,/cart,"ConnectionResetError(104, 'Connection reset by peer')",2
+GET,/product/LS4PSXUNUM,"ConnectionRefusedError(111, 'Connection refused')",95
+GET,/product/66VCHSJNUP,HTTPParseError('Incomplete response.'),2
+GET,/product/9SIQT8TOJO,LocustBadStatusCode(code=500),698

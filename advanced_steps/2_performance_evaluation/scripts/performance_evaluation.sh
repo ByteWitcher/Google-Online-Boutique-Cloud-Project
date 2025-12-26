@@ -12,9 +12,23 @@ RESULTS_CSV="advanced_steps/2_performance_evaluation/results/experiment_times.cs
 
 # Define experiments
 experiments=(
-  "E16,700,70,5m"
-  "E17,800,80,5m"
-  "E18,900,90,5m"
+  "E1,10,1,5m"
+  "E2,25,2,5m"
+  "E3,50,5,5m"
+  "E4,100,10,5m"
+  "E5,200,20,5m"
+  "E6,300,30,5m"
+  "E7,400,40,5m"
+  "E8,500,50,5m"
+  "E9,600,60,5m"
+  "E10,700,70,5m"
+  "E11,800,80,5m"
+  "E12,900,90,5m"
+  "E13,1000,100,5m"
+  "E14,1500,150,5m"
+  "E15,2000,200,5m"
+  "E16,5000,500,5m"
+  "E17,10000,1000,5m"
 )
 
 # Create credentials and results directories if they don't exist
@@ -129,6 +143,6 @@ else
   source advanced_steps/2_performance_evaluation/venv/bin/activate
 fi
 
-python3 advanced_steps/2_performance_evaluation/plot/analyze_locust_results.py
+python3 advanced_steps/2_performance_evaluation/plot/plot_locust_results.py
 
 deactivate

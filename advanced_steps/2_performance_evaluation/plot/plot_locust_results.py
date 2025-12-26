@@ -43,9 +43,7 @@ for d in sorted(os.listdir(BASE_DIR)):
 # Convert to DataFrame
 res_df = pd.DataFrame(results).sort_values("users")
 
-# =========================
 # Plot 1: Throughput
-# =========================
 plt.figure()
 plt.plot(res_df["users"], res_df["requests_per_sec"], marker="o")
 plt.xlabel("Concurrent users")
@@ -56,9 +54,7 @@ plt.tight_layout()
 plt.savefig("advanced_steps/2_performance_evaluation/results/plots/throughput_vs_users.png")
 plt.close()
 
-# =========================
 # Plot 2: Latency
-# =========================
 plt.figure()
 plt.plot(res_df["users"], res_df["p50"], marker="o", label="p50")
 plt.plot(res_df["users"], res_df["p95"], marker="o", label="p95")
@@ -72,9 +68,7 @@ plt.tight_layout()
 plt.savefig("advanced_steps/2_performance_evaluation/results/plots/latency_vs_users.png")
 plt.close()
 
-# =========================
 # Plot 3: Failure rate
-# =========================
 plt.figure()
 plt.plot(res_df["users"], res_df["failure_rate"] * 100, marker="o")
 plt.xlabel("Concurrent users")

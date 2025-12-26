@@ -1,1 +1,283 @@
 Count,Message,Traceback,Nodes
+1,Incomplete response.,"  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 355, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 388, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 400, in execute_task
+    task(self)
+  File ""/loadgen/locustfile.py"", line 59, in checkout
+    addToCart(l)
+  File ""/loadgen/locustfile.py"", line 50, in addToCart
+    l.client.get(""/product/"" + product)
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 312, in get
+    return self.request(""GET"", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 259, in request
+    response = self._send_request_safe_mode(method, built_url, payload=data, headers=headers, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 170, in _send_request_safe_mode
+    return self.client.urlopen(url, method=method, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 416, in urlopen
+    e.http_log = self._conversation_str(req.url, resp, payload=req.payload)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 486, in _conversation_str
+    + resp.content.decode(encoding)
+      ^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 205, in content
+    self._cached_content = self._content()
+                           ^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 583, in _content
+    return super()._content()
+           ^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 220, in _content
+    ret = self._response.read()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/response.py"", line 232, in read
+    self.feed(data)
+",c6aa369e4238_a2dfee93d989444ab6ba748791972e25
+29,Incomplete response.,"  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 355, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 388, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 400, in execute_task
+    task(self)
+  File ""/loadgen/locustfile.py"", line 43, in browseProduct
+    l.client.get(""/product/"" + random.choice(products))
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 312, in get
+    return self.request(""GET"", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 259, in request
+    response = self._send_request_safe_mode(method, built_url, payload=data, headers=headers, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 170, in _send_request_safe_mode
+    return self.client.urlopen(url, method=method, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 416, in urlopen
+    e.http_log = self._conversation_str(req.url, resp, payload=req.payload)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 486, in _conversation_str
+    + resp.content.decode(encoding)
+      ^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 205, in content
+    self._cached_content = self._content()
+                           ^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 583, in _content
+    return super()._content()
+           ^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 220, in _content
+    ret = self._response.read()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/response.py"", line 232, in read
+    self.feed(data)
+","c6aa369e4238_a2dfee93d989444ab6ba748791972e25, 6ff898ddedca_358649eed8cc4da8acfffc3ead187fa7"
+7,Incomplete response.,"  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 355, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 388, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 400, in execute_task
+    task(self)
+  File ""/loadgen/locustfile.py"", line 50, in addToCart
+    l.client.get(""/product/"" + product)
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 312, in get
+    return self.request(""GET"", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 259, in request
+    response = self._send_request_safe_mode(method, built_url, payload=data, headers=headers, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 170, in _send_request_safe_mode
+    return self.client.urlopen(url, method=method, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 416, in urlopen
+    e.http_log = self._conversation_str(req.url, resp, payload=req.payload)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 486, in _conversation_str
+    + resp.content.decode(encoding)
+      ^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 205, in content
+    self._cached_content = self._content()
+                           ^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 583, in _content
+    return super()._content()
+           ^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 220, in _content
+    ret = self._response.read()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/response.py"", line 232, in read
+    self.feed(data)
+","c6aa369e4238_a2dfee93d989444ab6ba748791972e25, 6ff898ddedca_358649eed8cc4da8acfffc3ead187fa7"
+9,Incomplete response.,"  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 355, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 388, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 400, in execute_task
+    task(self)
+  File ""/loadgen/locustfile.py"", line 46, in viewCart
+    l.client.get(""/cart"")
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 312, in get
+    return self.request(""GET"", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 259, in request
+    response = self._send_request_safe_mode(method, built_url, payload=data, headers=headers, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 170, in _send_request_safe_mode
+    return self.client.urlopen(url, method=method, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 416, in urlopen
+    e.http_log = self._conversation_str(req.url, resp, payload=req.payload)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 486, in _conversation_str
+    + resp.content.decode(encoding)
+      ^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 205, in content
+    self._cached_content = self._content()
+                           ^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 583, in _content
+    return super()._content()
+           ^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 220, in _content
+    ret = self._response.read()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/response.py"", line 232, in read
+    self.feed(data)
+","c6aa369e4238_a2dfee93d989444ab6ba748791972e25, 6ff898ddedca_358649eed8cc4da8acfffc3ead187fa7"
+4,Incomplete response.,"  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 355, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 388, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 400, in execute_task
+    task(self)
+  File ""/loadgen/locustfile.py"", line 61, in checkout
+    l.client.post(""/cart/checkout"", {
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 341, in post
+    return self.request(""POST"", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 259, in request
+    response = self._send_request_safe_mode(method, built_url, payload=data, headers=headers, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 170, in _send_request_safe_mode
+    return self.client.urlopen(url, method=method, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 416, in urlopen
+    e.http_log = self._conversation_str(req.url, resp, payload=req.payload)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 486, in _conversation_str
+    + resp.content.decode(encoding)
+      ^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 205, in content
+    self._cached_content = self._content()
+                           ^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 583, in _content
+    return super()._content()
+           ^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 220, in _content
+    ret = self._response.read()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/response.py"", line 232, in read
+    self.feed(data)
+","6ff898ddedca_358649eed8cc4da8acfffc3ead187fa7, c6aa369e4238_a2dfee93d989444ab6ba748791972e25"
+4,Incomplete response.,"  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 355, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 388, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 400, in execute_task
+    task(self)
+  File ""/loadgen/locustfile.py"", line 35, in index
+    l.client.get(""/"")
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 312, in get
+    return self.request(""GET"", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 259, in request
+    response = self._send_request_safe_mode(method, built_url, payload=data, headers=headers, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 170, in _send_request_safe_mode
+    return self.client.urlopen(url, method=method, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 416, in urlopen
+    e.http_log = self._conversation_str(req.url, resp, payload=req.payload)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 486, in _conversation_str
+    + resp.content.decode(encoding)
+      ^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 205, in content
+    self._cached_content = self._content()
+                           ^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 583, in _content
+    return super()._content()
+           ^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 220, in _content
+    ret = self._response.read()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/response.py"", line 232, in read
+    self.feed(data)
+","6ff898ddedca_358649eed8cc4da8acfffc3ead187fa7, c6aa369e4238_a2dfee93d989444ab6ba748791972e25"
+1,Incomplete response.,"  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 355, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 388, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 400, in execute_task
+    task(self)
+  File ""/loadgen/locustfile.py"", line 39, in setCurrency
+    l.client.post(""/setCurrency"",
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 341, in post
+    return self.request(""POST"", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 259, in request
+    response = self._send_request_safe_mode(method, built_url, payload=data, headers=headers, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 170, in _send_request_safe_mode
+    return self.client.urlopen(url, method=method, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 416, in urlopen
+    e.http_log = self._conversation_str(req.url, resp, payload=req.payload)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 486, in _conversation_str
+    + resp.content.decode(encoding)
+      ^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 205, in content
+    self._cached_content = self._content()
+                           ^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 583, in _content
+    return super()._content()
+           ^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 220, in _content
+    ret = self._response.read()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/response.py"", line 232, in read
+    self.feed(data)
+",6ff898ddedca_358649eed8cc4da8acfffc3ead187fa7
+1,Incomplete response.,"  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 355, in run
+    self.execute_next_task()
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 388, in execute_next_task
+    self.execute_task(self._task_queue.popleft())
+  File ""/usr/local/lib/python3.12/site-packages/locust/user/task.py"", line 400, in execute_task
+    task(self)
+  File ""/loadgen/locustfile.py"", line 51, in addToCart
+    l.client.post(""/cart"", {
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 341, in post
+    return self.request(""POST"", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 259, in request
+    response = self._send_request_safe_mode(method, built_url, payload=data, headers=headers, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 170, in _send_request_safe_mode
+    return self.client.urlopen(url, method=method, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 416, in urlopen
+    e.http_log = self._conversation_str(req.url, resp, payload=req.payload)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 486, in _conversation_str
+    + resp.content.decode(encoding)
+      ^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 205, in content
+    self._cached_content = self._content()
+                           ^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/locust/contrib/fasthttp.py"", line 583, in _content
+    return super()._content()
+           ^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/useragent.py"", line 220, in _content
+    ret = self._response.read()
+          ^^^^^^^^^^^^^^^^^^^^^
+  File ""/usr/local/lib/python3.12/site-packages/geventhttpclient/response.py"", line 232, in read
+    self.feed(data)
+",c6aa369e4238_a2dfee93d989444ab6ba748791972e25
