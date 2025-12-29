@@ -2,6 +2,7 @@
 
 # Get project name and frontend IP address
 export PROJECT_NAME=$(gcloud config get-value project)
+export SERVICE_ACCOUNT="shopapp-terraform-account@${PROJECT_NAME}.iam.gserviceaccount.com"
 export FRONTEND_ADDR=$(kubectl get svc frontend-external -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
 CREDENTIALS_PATH="base_steps/4_deploying_automatically_the_load_generator_in_google_cloud/terraform/credentials/shopapp-terraform-account.json"
