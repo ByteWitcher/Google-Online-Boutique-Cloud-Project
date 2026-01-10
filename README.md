@@ -30,7 +30,6 @@ Each step is fully automated and can be executed independently **as long as prer
 
 ```
 .
-├── README.md
 ├── advanced_steps
 │   ├── 1_monitoring_the_application_and_the_infrastructure
 │   ├── 2_performance_evaluation
@@ -39,7 +38,6 @@ Each step is fully automated and can be executed independently **as long as prer
 │   ├── 1_deploying_the_original_application_in_gke
 │   ├── 3_deploying_the_load_generator_on_a_local_machine
 │   └── 4_deploying_automatically_the_load_generator_in_google_cloud
-└── cleanup.sh
 ```
 
 Each step directory contains:
