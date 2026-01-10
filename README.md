@@ -1,6 +1,6 @@
 # Project Execution Guide
 
-This repository contains all the scripts and resources required to reproduce the experiments conducted for this project. The workflow is fully automated and organized into clearly defined steps, allowing users to reproduce the complete setup and evaluation process with minimal manual intervention.
+This repository contains all the scripts and resources required to reproduce the experiments conducted for this project. The workflow is fully automated and organized into clearly defined steps, allowing to reproduce the complete setup and evaluation process with minimal manual intervention.
 
 ---
 
@@ -39,9 +39,6 @@ Each step is fully automated and can be executed independently **as long as prer
 │   ├── 1_monitoring_the_application_and_the_infrastructure/
 │   └── 2_performance_evaluation/
 │
-├── bonus_steps/
-│   └── ...
-│
 └── cleanup.sh
 ```
 
@@ -79,13 +76,6 @@ For example:
   **require** that the Kubernetes cluster has already been created which is done in `1_deploying_the_original_application_in_gke`.
 
 Therefore, steps **must be executed in order**, following their numbering.
-
-Recommended execution order:
-
-1. `base_steps/1_deploying_the_original_application_in_gke`
-2. `base_steps/3_deploying_the_load_generator_on_a_local_machine`
-3. `base_steps/4_deploying_automatically_the_load_generator_in_google_cloud`
-4. `advanced_steps/*` (monitoring, performance evaluation, etc.)
 
 ---
 
