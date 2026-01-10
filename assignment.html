@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)https://m2-mosig-cloud.gitlab.io/lab_assignment/#main-instructions -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab Assignment (Fall 2025) | M2 MoSIG - Cloud Computing: From Infrastructure to Applications</title>
+    <link rel="stylesheet" href="./Lab Assignment (Fall 2025) _ M2 MoSIG - Cloud Computing_ From Infrastructure to Applications_files/style.css">
+    <link rel="stylesheet" href="./Lab Assignment (Fall 2025) _ M2 MoSIG - Cloud Computing_ From Infrastructure to Applications_files/fonts.css">
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="https://m2-mosig-cloud.gitlab.io/">Home</a></li>
+      
+      <li><a href="https://m2-mosig-cloud.gitlab.io/lectures">Lectures</a></li>
+      
+      <li><a href="https://m2-mosig-cloud.gitlab.io/resources">Resources</a></li>
+      
+      <li><a href="https://m2-mosig-cloud.gitlab.io/exam">About the exam</a></li>
+      
+    </ul>
+    <hr>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Lab Assignment (Fall 2025)</span></h1>
+
+
+</div>
+
+<hr>
+
+
+<b><h2>Table of Contents</h2></b>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#the-report">The report</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#your-code">Your code</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#main-instructions">Main instructions</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#platforms">Platforms</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#recommendations">Recommendations</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#discovering-gcp-and-gke">Discovering GCP and GKE</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#deploying-the-original-application-in-gke">Deploying the original application in GKE</a>
+      <ul>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#gke-configuration">GKE configuration</a></li>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#deploying-the-application">Deploying the application</a></li>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#reconfiguring-the-application">Reconfiguring the application</a></li>
+      </ul>
+    </li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#analyzing-the-provided-configuration">Analyzing the provided configuration</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#deploying-the-load-generator-on-a-local-machine">Deploying the load generator on a local machine</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#deploying-automatically-the-load-generator-in-google-cloud">Deploying automatically the load generator in Google Cloud</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#monitoring-the-application-and-the-infrastructure">Monitoring the application and the infrastructure</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#performance-evaluation">Performance evaluation</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#canary-releases">Canary releases</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#monitoring-the-application-and-the-infrastructure-bonus">Monitoring the application and the infrastructure [Bonus]</a>
+      <ul>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#collecting-more-specific-metrics">Collecting more specific metrics</a></li>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#raising-alerts">Raising alerts</a></li>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#collecting-traces">Collecting traces</a></li>
+      </ul>
+    </li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#performance-evaluation-bonus">Performance evaluation [Bonus]</a>
+      <ul>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#identifying-bottlenecks">Identifying bottlenecks</a></li>
+      </ul>
+    </li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#autoscaling-bonus">Autoscaling [Bonus]</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#optimizing-the-cost-of-your-deployment-bonus">Optimizing the cost of your deployment [Bonus]</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#canary-releases-bonus">Canary releases [Bonus]</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#managing-a-storage-backend-for-logging-orders-bonus">Managing a storage backend for logging orders [Bonus]</a>
+      <ul>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#introducing-the-log">Introducing the log</a></li>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#using-a-storage-backend-for-the-log">Using a storage backend for the log</a></li>
+        <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#making-the-log-persistent">Making the log persistent</a></li>
+      </ul>
+    </li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#comparing-k3s-and-k8sgke-bonus">Comparing K3s and K8s/GKE [Bonus]</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#deploying-your-own-kubernetes-infrastructure-bonus">Deploying your own Kubernetes infrastructure [Bonus]</a></li>
+    <li><a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#review-of-recent-publications-bonus">Review of recent publications [Bonus]</a></li>
+  </ul>
+</nav>
+<hr>
+
+
+
+<main>
+<p>This lab is about the deployment of a micro-service application in a Kubernetes cluster, the management of this application and of the cluster. It includes a set of mandatory steps as well as additional steps that will allow you to extend the work in different directions.</p>
+<hr>
+<h1 id="important-information">Important information</h1>
+<blockquote>
+<ul>
+<li>
+<p>The assignment is to be done by groups of <strong>at most 2 students</strong>.</p>
+</li>
+<li>
+<p>The assignment must be implemented using Google Cloud Platform (GCP).</p>
+</li>
+<li>
+<p>The deadline to submit you work is <strong>Friday January 16, 2026 at 23:59</strong>. The instructions to submit your assignment are available <a href="https://m2-mosig-cloud.gitlab.io/lab_submission">here</a>.</p>
+</li>
+<li>
+<p>If you have any question, please feel free to send emails to Thomas Ropars and Renaud Lachaize. Note: <strong>always write to both teachers</strong>.</p>
+</li>
+</ul>
+</blockquote>
+<h1 id="collaboration-and-plagiarism">Collaboration and plagiarism</h1>
+<p>You are encouraged to discuss ideas and problems related to this project with the other students. You can also look for additional resources on the Internet. However, we consider cheating and plagiarism very seriously. Hence, if any part of your final submission reflects influences from external sources, you must cite these external sources in your report. Also, any part of your design, your implementation, and your report should come from you and not from other students. In case of plagiarism, your submission will not be graded and appropriate actions will be taken.</p>
+<p>If you store your work in a Git repository on a platform such as GitHub or GitLab, your files must not be publicly accessible.</p>
+<hr>
+<h1 id="your-submission">Your submission</h1>
+<p>How to submit? see <a href="https://m2-mosig-cloud.gitlab.io/lab_submission">here</a></p>
+<p>Before the deadline of this lab assignment, you should submit in a <strong>single email</strong>:</p>
+<ul>
+<li>A report that summarizes your work</li>
+<li>The code corresponding to the different steps that you have covered</li>
+</ul>
+<p>The title of the email must be: <code>[M2 Mosig Cloud] lab submission</code>.
+The body of the email must contain the name(s) of the student(s).</p>
+<p>Please find below the main instructions regarding each part of the submission.</p>
+<p><strong>Warning: Be careful with the size of the files attached to your email.</strong> Large attachments may be rejected by mail servers. If your files are bigger than a few megabytes, it may be safer to upload the files to a service such as <a href="https://filesender.renater.fr/?=&amp;lang=en">FileSender</a> and simply include download links in your email.</p>
+<h2 id="the-report">The report</h2>
+<p><strong>The report must be in md (MarkDown) or pdf format.</strong> (Other formats will be rejected.)</p>
+<p>It must include the following information:</p>
+<ul>
+<li><strong>The name of the participants.</strong></li>
+<li>A list of the steps that you have implemented/studied (your main achievements)</li>
+<li>For each step, provide all information required to appreciate your work. This can include:
+<ul>
+<li>Your design choices</li>
+<li>Your technical choices</li>
+<li>The experiments you run</li>
+<li>The results you obtained (presented as graphs when possible)</li>
+<li>The conclusions you have drawn</li>
+</ul>
+</li>
+</ul>
+<p>Your report can also include a description of the steps that your tried but did not succeed to address. In this case, describe:</p>
+<ul>
+<li>The main problems that you encountered</li>
+<li>Possible solutions to solve these problems (even if you did not have the time to implement these solutions)</li>
+</ul>
+<h2 id="your-code">Your code</h2>
+<p>To submit your code, you can:</p>
+<ul>
+<li>Attach it as an archive in the same email as your report submission</li>
+<li>Make it available in a GitHub/GitLab project, to which you will have given us access</li>
+</ul>
+<p>Your code should include a minimal documentation (<code>README</code>) describing:</p>
+<ul>
+<li>Where to find the code corresponding to the different steps of the lab</li>
+<li>How to run/deploy the provided code</li>
+</ul>
+<p>Although the documentation can be short, it should be sufficiently clear/detailed to allow the teachers to reproduce the tests/experiments that you have done.</p>
+<hr>
+<hr>
+<h1 id="overview">Overview</h1>
+<h2 id="main-instructions">Main instructions</h2>
+<blockquote>
+<p>The lab is divided into 3 parts:</p>
+<ul>
+<li>The <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#base-steps-mandatory">Base steps</a> are <strong>mandatory</strong> steps. You are asked to terminate these steps before moving to the rest.</li>
+<li>The <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#advanced-steps-mandatory">Advanced steps</a> are also <strong>mandatory</strong>. There are considered more difficult than the <em>base</em> steps.</li>
+<li>The <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#bonus-steps">Bonus steps</a> are possible directions that we suggest you to explore to extend this lab.</li>
+</ul>
+<p><strong>Doing at least the <em>base steps</em> is required to obtain a passing grade. Doing the <em>base</em> and <em>advanced</em> steps is required to get a good grade. To get a very good grade, you need to have investigated at least some bonus steps.</strong></p>
+</blockquote>
+<ul>
+<li>
+<p>For each step, only high-level guidelines are provided. It is part of your work to understand the different technologies, and how to use them to solve the problems you encounter.</p>
+</li>
+<li>
+<p>We are aware that some of the steps can be challenging. Hence, it is possible that you will fail to complete some steps. This does not mean that your work does not deserve any points. Properly analyzing and documenting a problem (and, if possible, proposing solutions) could be as valuable as solving the problem from the first try <em>by luck</em>.</p>
+</li>
+<li>
+<p>The <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#bonus-steps">Bonus steps</a> cover a broad scope of topics. We are free to work on the topics that you find more interesting. There might also be some topics that you would like to work on, but that are not listed in the description. You are encouraged to dig into the topics that you are interested in, but verify which the teaching staff first that they fit in the scope of the lab.</p>
+</li>
+<li>
+<p>While some links to useful documentations are provided, some parts of this lab will also require searching for additional documentations and choosing between different possible tools and technical approaches to design and implement your solutions. In other words, there is no requirement to use all the documentations listed here and you will also certainly need to find and select additional documentations.</p>
+</li>
+</ul>
+<h2 id="platforms">Platforms</h2>
+<p>The main target platform for this graded lab assignment is <a href="https://cloud.google.com/?hl=en">Google Cloud Platform</a> (GCP), with a particular focus on its “managed” Kubernetes service named GKE (Google Kubernetes Engine). The guidelines to obtain free credits  (50$) for using GCP have been sent to you by email.</p>
+<p>In <a href="https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/k3s/">the introductory lab about Kubernetes</a> earlier in the semester, we have used the ECloud private cloud platform of the University, with a pre-configured setup allowing the deployment of a Kubernetes cluster based on the K3s distribution. For the present lab assignment, you will stil have access to the Ecloud platform and we encourage you to use it. In particular, you can use the Ecloud platform to run preliminary tests and observations for some of the steps of the lab. This will allow you saving GCP credits.</p>
+<ul>
+<li>Still, we recall that the <strong>assignment must be implemented using Google Cloud Platform (GCP)</strong></li>
+</ul>
+<p>Please also note that some steps of this lab cannot be done on ECloud and will require using GCP (even for basic tests). For example, steps involving machines with significant resources and/or with additional virtual machines running outside of the Kubernetes cluster.</p>
+<h2 id="recommendations">Recommendations</h2>
+<ul>
+<li>
+<p>We strongly recommend you to document your work while you are working on the different tasks to avoid forgetting important details.</p>
+</li>
+<li>
+<p><strong>Making things automatic</strong> should be one of your primary goals, so that, you can reproduce the same experiments later on.</p>
+<ul>
+<li>
+<p>It is also important that we can easily reproduce what you did, using the code you will submit.</p>
+</li>
+<li>
+<p>Remember that you pay for any resource you use on Google Cloud. Making things automatic should also allow you to rapidly free all the resources you allocated when finishing working on the lab.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>For some of the questions, it can make sense to start working on your local machine (using tools such as Docker and Minikube) before launching tests on Google Cloud. This may help you saving time and/or GCP credits.</p>
+</li>
+</ul>
+<hr>
+<h1 id="the-online-boutique-demo-application">The “Online Boutique” demo application</h1>
+<blockquote>
+<p>This lab work targets a microservice demo application developed by Google and named “Online Boutique”. As the name suggests, this is a mock application that simulates an online shop. It is made of a combination of 11 microservices. For most of these services, the implementation is very simplified (compared to the expected features of a realistic application). Nonetheless, it is sufficient to illustrate the structure and operation of a reasonably complex cloud-native application.</p>
+</blockquote>
+<p>The demo application is available from its <a href="https://github.com/GoogleCloudPlatform/microservices-demo">GitHub repository</a>.
+The main documentation can be found in the top-level <a href="https://github.com/GoogleCloudPlatform/microservices-demo/blob/main/README.md"><code>README</code> file</a> and in the <a href="https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/docs"><code>docs</code> folder</a>.</p>
+<!-- A test/sample deployment of the web application is available via the following URL: [https://onlineboutique.dev](https://onlineboutique.dev) -->
+<p>Note: This demo application used to be named <em>“Hipster Shop”</em>. Some documents and code/configuration files still use this name.</p>
+<hr>
+<hr>
+<h1 id="base-steps-mandatory">Base steps [Mandatory]</h1>
+<h2 id="discovering-gcp-and-gke">Discovering GCP and GKE</h2>
+<p>In order to discover how to use GCP and GKE (in particular, the initialization steps and the different types of interfaces allowing to interact with the platform), we strongly recommend you to redo the first steps of the previous labs and to transpose them to the context of GCP/GKE.</p>
+<p>To this end, you can follow this tutorial: <a href="https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/k8s/">Discovering GCP and Kubernetes</a>.</p>
+<h2 id="deploying-the-original-application-in-gke">Deploying the original application in GKE</h2>
+<h3 id="gke-configuration">GKE configuration</h3>
+<p>For this step (and most of the following steps), we are going to use a default GKE configuration. This means that we will use the following command to start our GKE cluster:</p>
+<pre><code>gcloud container clusters create [CLUSTER-NAME]
+</code></pre><p>For more details, see the dedicated <a href="https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/k8s/">tutorial</a>.</p>
+<h3 id="deploying-the-application">Deploying the application</h3>
+<p>The <a href="https://github.com/GoogleCloudPlatform/microservices-demo/blob/main/README.md"><code>README</code> file</a> describe the main steps for deploying the application with default configuration. It boils down to the following steps:</p>
+<ol>
+<li>Clone the project</li>
+<li>Run <code>kubectl apply</code> with the default provided <code>manifests</code>.</li>
+</ol>
+<p>To check the status of your application, you can run:</p>
+<pre><code>kubectl get pods
+</code></pre><p>You should soon observe that not all containers of our application manage to start. This is because the default configuration for a GKE cluster does not have enough resources to satisfy all the requirements of the default configuration.</p>
+<p><strong>Question</strong>: In the README file, it is suggested to start a GKE cluster configured in “Autopilot” mode (as opposed to “standard” mode). Using this mode would solve the problem we just observed. Briefly explain what is this Autopilot mode and why it hides the problem.</p>
+<ul>
+<li>The Autopilot mode, while useful, also has some downsides compared to the standard mode. One of them is that its billing is more expensive. Another one is that it is less flexible in terms of control knobs provided to the GKE user. Hence, we are not going to use the Autopilot mode in this project (You can still of course test it out of curiosity)</li>
+</ul>
+<h3 id="reconfiguring-the-application">Reconfiguring the application</h3>
+<p>To solve our deployment issue, we are going to change the application configuration.</p>
+<p>The Online Boutique application comes with options to simply customize the application configuration using the <a href="https://kustomize.io/">Kustomize Tool</a>:</p>
+<ul>
+<li>Kustomize is a tool to simply modify Kubernetes manifests</li>
+<li>A dedicated <a href="https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/kustomize">README file</a> explains how to use Kustomize with the Online Boutique application</li>
+</ul>
+<p>For our case, we would like to apply the following modifications to the <code>base</code> configuration:</p>
+<ul>
+<li>Stop deploying the <code>load generator</code> as part of the application</li>
+<li>Reduce the amount of resources required to deploy some services (more details below)
+<ul>
+<li>We observed that in the default configuration of the GKE cluster, the limiting factor for the deployment of the services is the CPU.</li>
+</ul>
+</li>
+</ul>
+<p>To reduce the amount of resources required by a service, you need to play with the resources required by the service through the parameters <code>requests</code> and <code>limits</code>:</p>
+<ul>
+<li><strong>Question</strong>: Which of the two parameters (<code>requests</code> and <code>limits</code>) actually matters when Kubernetes decides that it can deploy a service on a worker node?</li>
+<li>We know that dividing by 2 the CPU resources requested by 2 of the services is enough to be able to deploy all services on the GKE cluster
+<ul>
+<li>Select 2 services among those that seem less critical in the application to reduce their resource requirement and justify your choices in the report</li>
+</ul>
+</li>
+</ul>
+<!-- Follow the guidelines from the documentation to try and deploy the demo application on GKE. -->
+<!-- Check that the application is working correctly - via the following means: -->
+<!-- * by using a web browser -->
+<!-- * by checking the output of the (continuously running) Locust load generator (also known as "load injector") -->
+<!-- Note the following points: -->
+<!-- * The default standard GKE cluster setup (such as the one used in the introductory lab) will not have enough resources to run all the required pods. -->
+<!-- * You will not encounter this issue when following the steps described in the quickstart guide of Online Boutique. This is because, in that case, the GKE cluster is configured in "Autopilot" mode (as opposed to "standard" mode). Briefly explain what is this Autopilot mode and why it hides the problem. -->
+<!-- * The Autopilot mode, while useful, also has some downsides compared to the standard mode. One of them is that its billing is more expensive. Another one is that it is less flexible in terms of control knobs provided to the GKE user. If you want to deploy the full application on GKE in standard mode, we recommend using nodes with the following characteristics: -->
+<!--     * machine type:  e2-standard-2 -->
+<!--     * number of nodes: 4 -->
+<hr>
+<h2 id="analyzing-the-provided-configuration">Analyzing the provided configuration</h2>
+<p>To better understand how the deployed application is configured, we would like you to analyze the configuration files that is used for deployment.</p>
+<p>In this step, we ask you to select one service (we let you choose the one you prefer), and to explain in your report the purpose of the different parameters that are used to configure this service in the corresponding <code>yaml</code> file accessible in the directory <code>kustomize/base</code>.</p>
+<!-- *** -->
+<!-- ## Targeting a minimal deployment -->
+<!-- By default, the provided configuration will deploy [all the microservices](https://github.com/GoogleCloudPlatform/microservices-demo/tree/main#architecture) as well as a load generator component (based on the [Locust](https://locust.io) load testing framework).  -->
+<!-- Some of the microservices are probably not strictly required to run the online boutique application. This is for example the case for the  `email` service. -->
+<!-- Besides, the `load generator` will run on the same GKE cluster as the microservices, which is not very realistic. -->
+<!-- Create an alternative deployment configuration in which the `load generator` as well as any other component that is not strictly needed for the application to work is not deployed.  -->
+<!-- Manually test (with a web browser) that the web application is running correctly. -->
+<hr>
+<h2 id="deploying-the-load-generator-on-a-local-machine">Deploying the load generator on a local machine</h2>
+<p>To test your application, it would be better to deploy the <code>load generator</code> on a machine that is outside of the Kubernetes cluster (so that, the load generator does not consume the resources of the cluster).</p>
+<p>As an intermediate step, we ask you to manually deploy the load generator on a <em>local</em> machine – either:</p>
+<ul>
+<li>your own laptop (or a lab room machine)</li>
+<li>in the google cloud shell</li>
+</ul>
+<p>To do so, the best solution is to deploy the load generator as a Docker container. Several resources can help you in this task:</p>
+<ul>
+<li>The <a href="https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/src/loadgenerator">code of the load generator service</a> includes a Locust file to specify the load to inject, as well as a Dockerfile that describes how the load generator that is deployed by default is configured.</li>
+<li>The Locust documentation explain how to use Locust, including explanations about to use it with Docker.</li>
+</ul>
+<p>If you are unfamiliar with Docker, we suggest that you start by learning the basics. Here are some resources that might help you (many more resources are available on the Web):</p>
+<ul>
+<li>The <a href="https://container.training/">tutorials</a> of J. Petazzoni, including a tutorial about <a href="https://container.training/intro-selfpaced.yml.html#1">Docker</a></li>
+<li>These <a href="https://tropars.github.io/downloads/lectures/Docker/formation_docker.pdf">lecture notes</a> and the corresponding <a href="https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/docker/">tutorial</a> – In French</li>
+</ul>
+<hr>
+<h2 id="deploying-automatically-the-load-generator-in-google-cloud">Deploying automatically the load generator in Google Cloud</h2>
+<p>For a more convenient and realistic way of testing your application, it would be better to deploy the load generator in the cloud but outside of the GKE cluster where the online boutique runs.</p>
+<p>In this stage, we ask you to deploy the load generator in a virtual machine (VM) that you will have reserved and configured on Google Cloud (the VM service of Google Cloud is named <a href="https://cloud.google.com/compute">Google Compute Engine - GCE</a>). To simplify the deployment of the load generator, you should re-use the work done in the previous step and take advantage of Docker.</p>
+<p>Reserving and configuring a VM manually is a first option to deploy the load generator. However, this is an operation that will probably have to execute multiple times to run tests. Being able to do that automatically would be a better option.</p>
+<p>Hence, we ask you to adopt an <em>infrastructure-as-code</em> approach, where you write the code that will allow to do all these operations automatically, instead of executing these operations manually. Different tools can be used for this purpose, some of the most popular are:</p>
+<ul>
+<li><a href="https://www.terraform.io/">Terraform</a> for resource provisioning (= reserving cloud resources)</li>
+<li><a href="https://www.ansible.com/">Ansible</a> for resource configuration</li>
+</ul>
+<p>Note that Terraform can also be used for resource configuration.</p>
+<p>Here are some simple examples that can help you in the design of the solution for this step:</p>
+<ul>
+<li><a href="https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/terraform/">A simple tutorial to reserve a few VMs in the Cloud using Terraform</a></li>
+<li><a href="https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/mpi/">A tutorial that uses Terraform for provisioning and Ansible for configuration</a></li>
+</ul>
+<hr>
+<hr>
+<h1 id="advanced-steps-mandatory">Advanced steps [Mandatory]</h1>
+<h2 id="monitoring-the-application-and-the-infrastructure">Monitoring the application and the infrastructure</h2>
+<p>When you deploy a GKE cluster, some monitoring tools are already deployed for you, and you can already observe some monitoring data through dashboards accessible through the Google Cloud console.</p>
+<p>Still, it can be important to deploy your own monitoring infrastructure. Hence, in this step, we ask you to deploy your own monitoring stack in your Kubernetes cluster. The stack should be based on:</p>
+<ul>
+<li><a href="https://prometheus.io/">Prometheus</a> for collecting data</li>
+<li><a href="https://grafana.com/">Grafana</a> to produce dashboards out of the collected data.</li>
+</ul>
+<p>Both components should be deployed inside your Kubernetes cluster.</p>
+<p>Your monitoring infrastructure should collect at least the following information:</p>
+<ul>
+<li>Information about resource consumption at the level of each node</li>
+<li>Information about resource consumption at the level of each pod</li>
+</ul>
+<p>You should provide already configured Grafana dashboards that allow visualizing these data.</p>
+<p>Note that collecting information at the node and at the pod levels requires deploying <a href="https://prometheus.io/docs/instrumenting/exporters/">exporters</a>. More specifically, in this case, the <a href="https://github.com/prometheus/node_exporter">node exporter</a> and <a href="https://github.com/google/cadvisor">cAdvisor</a> can be good options.</p>
+<p>Suggestions to further extend the work on monitoring are described <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#monitoring-the-application-and-the-infrastructure-bonus">here</a>.</p>
+<hr>
+<h2 id="performance-evaluation">Performance evaluation</h2>
+<p>The load generator coming with the application allows you to evaluate the performance of your application. While injecting load in the application, <em>Locust</em> collects metrics such as the response time and the number of failed requests for different types of requests.</p>
+<p>In this part, we ask you to conduct a performance evaluation of your application running in your Kubernetes cluster.</p>
+<p>Here are our main recommendations:</p>
+<ul>
+<li>
+<p>To obtain meaningful results, your load generator should run outside of your Kubernetes cluster, but inside the datacenter where the application is deployed (so that performance is not simply limited by the network performance between the load generator and the application). It would make sense to use your solution based on Terraform (developed in a previous step) to automatically deploy the load generator here.</p>
+</li>
+<li>
+<p>You should specify the methodology you will follow for running your performance evaluation. This includes:</p>
+<ul>
+<li>Defining the parameters of Locust to increase the number of clients sending requests in parallel.</li>
+<li>Considering creating multiple Locust instances to avoid being limited by the performance of the VM on which the load generator is running.</li>
+</ul>
+</li>
+<li>
+<p>Your report should include graphs that present the main results you obtain, and an analysis of these results.</p>
+<ul>
+<li>Note that Locust allows you to collect the results of your experiments in a CSV file, for later analysis.</li>
+</ul>
+</li>
+</ul>
+<p>Suggestions to further extend the work on performance evaluation are described <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#performance-evaluation-bonus">here</a>.</p>
+<hr>
+<h2 id="canary-releases">Canary releases</h2>
+<p>In this step, the goal is to support <em>canary releases</em> of the microservices, which is a useful technique to achieve <em>continuous deployment</em>.
+More precisely, we want to test and deploy a new version <code>v2</code> of a microservice while still using the current (stable) version <code>v1</code> of the service for a majority of the production requests.
+For simplicity, in this lab, we will apply this technique only to a single microservice within our software architecture, and we will only consider this canary technique in the case of a stateless microservice.
+The choice of the microservice to consider for this exercise is left to you.</p>
+<p>Some of the links below might be helpful for this part:</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/">Kubernetes documentation: Managing Resources</a></li>
+<li><a href="https://istio.io/latest/blog/2017/0.1-canary/">Canary deployments using Istio</a></li>
+<li><a href="https://github.com/GoogleCloudPlatform/istio-samples/tree/master/istio-canary-gke#productcatalog-canary-deployment-gke--istio">ProductCatalog Canary Deployment demo</a></li>
+<li><a href="https://medium.com/google-cloud/automated-canary-deployments-with-flagger-and-istio-ac747827f9d1">Automated canary deployments with Flagger and Istio</a></li>
+<li><a href="https://cloud.google.com/blog/topics/developers-practitioners/canary-deployments-using-kubernetes-gateway-api-flagger-and-google-cloud-deploy?hl=en">Canary deployments using Kubernetes Gateway API, Flagger and Google Cloud Deploy</a></li>
+</ul>
+<p>For this part, the first thing you have to do is modifying the code of the microservice to create a new version (<code>v2</code>). For simplicity, you can keep the code very similar to the one of the first version and simply modify a text string or value displayed to the end user (so that the change of version can be easily noticed when testing).</p>
+<p>Then, you are asked to implement and test the following steps:</p>
+<ul>
+<li>Deploy the new version <code>v2</code> so that it co-exists with the initial version <code>v1</code> and modify the configuration to have 25% of the requests sent to <code>v2</code>.
+<ul>
+<li>Describe in your report the methodology you use to check that the traffic is split correctly between <code>v1</code> and <code>v2</code>. Note that the <a href="https://kiali.io/">Kiali</a> tool might be useful for this purpose.</li>
+</ul>
+</li>
+<li>Extend your approach to be able to fully switch to <code>v2</code> (and disable <code>v1</code>, once <code>v2</code> has been successfully validated) without disrupting the applications (and the in-flight requests).</li>
+</ul>
+<p>Suggestions to further extend the work on canary releases are described <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#canary-releases-bonus">here</a>.</p>
+<hr>
+<hr>
+<h1 id="bonus-steps">Bonus steps</h1>
+<h2 id="monitoring-the-application-and-the-infrastructure-bonus">Monitoring the application and the infrastructure [Bonus]</h2>
+<p>These steps extends the advanced task: <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#monitoring-the-application-and-the-infrastructure">Monitoring the application and the infrastructure</a>.</p>
+<h3 id="collecting-more-specific-metrics">Collecting more specific metrics</h3>
+<p>In addition to general metrics about resource consumption, dedicated exporters can allow you to collect more specific metrics related to some components of your application. For instance, one could:</p>
+<ul>
+<li>Export redis-specific metrics through the dedicated <a href="https://github.com/oliver006/redis_exporter">exporter</a></li>
+<li>Export metrics related to <a href="https://github.com/grpc-ecosystem/go-grpc-middleware">gRPC</a></li>
+</ul>
+<p>You could even envision to write your own <a href="https://prometheus.io/docs/instrumenting/writing_exporters/">exporter</a> to collect application-specific metrics.</p>
+<p>In this part, we suggest you to dig into this topic.</p>
+<h3 id="raising-alerts">Raising alerts</h3>
+<p>Prometheus allow users to configure alerts on some events, and to send these alerts through different means.</p>
+<p>We suggest you to look at how this work, and to configure some alerts for your deployed application.</p>
+<h3 id="collecting-traces">Collecting traces</h3>
+<p>Traces are another type of data that can be collected to monitor the activity of a micro-service application. Traces gather information about the path of requests through the application. It documents what happens when a request is made to the application. For more details, see <a href="https://opentelemetry.io/docs/concepts/signals/traces/">here</a></p>
+<p>The Online Boutique application comes with a <a href="https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/kustomize/components/google-cloud-operations">Kustomize configuration</a> that:</p>
+<ul>
+<li>Activates tracing inside the application</li>
+<li>Deploys an <a href="https://opentelemetry.io/docs/collector/"><code>OpenTelemetry collector</code></a> to collect the generated traces</li>
+<li>Connects the <code>OpenTelemetry collector</code> to the <a href="https://docs.cloud.google.com/trace/docs">Google Cloud Trace</a> backend</li>
+</ul>
+<p>Here we suggest you to:</p>
+<ul>
+<li>Follow the provided <a href="https://github.com/GoogleCloudPlatform/microservices-demo/tree/main/kustomize/components/google-cloud-operations">Kustomize tutorial</a> to collect traces and export them to the Google Cloud backend</li>
+<li>Modify the default configuration to avoid relying on Google Cloud to analyze traces
+<ul>
+<li>More specifically, you can try deploying a <a href="https://www.jaegertracing.io/">Jaeger</a> service in your kubernetes cluster and connect it to the OpenTelemetry collector.</li>
+</ul>
+</li>
+</ul>
+<p>Traces could then be used as a means to improve your <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#performance-evaluation-bonus">analysis of the performance of the application</a></p>
+<hr>
+<h2 id="performance-evaluation-bonus">Performance evaluation [Bonus]</h2>
+<p>This step extends the advanced task: <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#performance-evaluation">Performance evaluation</a>.</p>
+<h3 id="identifying-bottlenecks">Identifying bottlenecks</h3>
+<p>When evaluating the performance of your application, you should be able to identify the maximum performance of your application for a default deployment configuration. The maximum performance is when adding more clients does not translate into processing more requests, or said differently, when adding more clients results in significantly higher response time.</p>
+<p>When the maximum performance is reached, it means that there are one or several bottlenecks. A bottleneck is hardware or software component that is saturated and prevents the performance from going higher.</p>
+<p>We suggest that you take advantage of the monitoring infrastructure you deployed (Step <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#monitoring-the-application-and-the-infrastructure">Monitoring the application and the infrastructure</a>) to identify the bottleneck(s) in your deployed application.</p>
+<hr>
+<h2 id="autoscaling-bonus">Autoscaling [Bonus]</h2>
+<p>Autoscaling techniques are used to adapt the amount of resources allocated to an application/service/cluster to the workload. In Kubernetes, different scaling mechanisms are available:</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">Horizontal Pod Autoscaling</a> allows adapting the number of replicas of a pod to the workload.</li>
+<li><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler">Vertical Pod Autoscaling</a> allows adapting the amount of resources assigned to existing pods.</li>
+<li><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler">Cluster Autoscaling</a> allows adapting the number of nodes of the Kubernetes cluster.</li>
+</ul>
+<p>We suggest that you try to apply autoscaling strategies to improve the performance of your application. This task involves:</p>
+<ul>
+<li>Designing a strategy to use autoscaling to improve performance
+<ul>
+<li>To design this strategy, you could take advantage of the information about bottlenecks in your application that you may have identified previously</li>
+<li>This strategy could combine the use of different autoscalers (for instance, HPA + Cluster Autoscaling)</li>
+<li>In all cases, the strategy you propose should be clearly described and justified in your report.</li>
+</ul>
+</li>
+<li>Running new performance evaluations to demonstrate that the proposed strategy works efficiently in practice</li>
+<li>You could also consider multiple strategies and compare their efficiency</li>
+</ul>
+<hr>
+<h2 id="optimizing-the-cost-of-your-deployment-bonus">Optimizing the cost of your deployment [Bonus]</h2>
+<p>Any resource used on a public cloud infrastructure has a cost. The less resources you use, the less you pay. In this step, we suggest you to study how to minimize resource usage for your deployed application. Different aspects can be considered here. Here are some directions you could explore:</p>
+<ul>
+<li>Resource optimization (Through autoscaling for instance)</li>
+<li>Pricing optimization (Selecting resources with a lower price)</li>
+</ul>
+<p>Resource consumption should always be analyzed with respect to performance to draw meaningful conclusions. Consuming a <em>large</em> amount of resources to process a high number of requests per second can make sense, while consuming the same amount of resources to process a few requests per second might not be satisfying.</p>
+<p>Performance may also depend on which resources are allocated (with the same budget, I could allocate several small VMs or a few large VMs), and to which part of the system the resources are allocated (I could allocate more resources to one service or to another).</p>
+<p>Run tests and present the results in your report, as well as the conclusions your draw from these results. Consider <em>cost</em> metrics to analyze your results (e.g., dollars per hour, dollars per 1000 requests, etc.).</p>
+<hr>
+<h2 id="canary-releases-bonus">Canary releases [Bonus]</h2>
+<p>This step extends the advanced task: <a href="https://m2-mosig-cloud.gitlab.io/lab_assignment/#canary-releases">Canary releases</a>.</p>
+<p>We now consider a version <code>v3</code> of the microservice, and we assume that this version is defective. The defect could be a bug or a performance issue. Here, for simplicity, <code>v3</code> will be identical to <code>v2</code> except the fact that it introduces a significant additional (artificial) delay in the processing of each request (e.g., 3 seconds per request).</p>
+<!--
+TBD : Est-il préférable de leur demander de gérer un problème de performance/latences ou bien un problème avec des erreurs (microservice qui génère des erreurs HTTP 500) ? (Ou bien leur laisser le choix ? Leur demander les deux ? Faire deux questions séparées ?) Quelle est la version la plus simple des deux ?
+-->
+<p>Set up a configuration allowing to automatically test a canary release and rollback (remove) it when it is found to be defective.</p>
+<hr>
+<h2 id="managing-a-storage-backend-for-logging-orders-bonus">Managing a storage backend for logging orders [Bonus]</h2>
+<p>The goal of this step is to extend the initial architecture of the “online boutique” web application: we will add a service that will store a log of all the orders placed by the customers of the shop.</p>
+<h3 id="introducing-the-log">Introducing the log</h3>
+<p>To introduce the log service and integrate it in the application, there are several things to do:</p>
+<ul>
+<li>Create a new microservice (<code>OrderLog</code>) that will receive a request for each order placed by a customer of the shop. The first implementation can be very simple: it just needs to print a text message in the debug console to describe the new order.</li>
+<li>Modify the code of one of the other microservices to invoke <code>OrderLog</code> upon the completion of a new customer order. By default, we suggest doing that within <code>CheckoutService</code>.</li>
+<li>Modify the build and deployment configuration to take into account this new microservice.</li>
+</ul>
+<p>Notes :</p>
+<ul>
+<li>
+<p>You can use the programming language of your choice for the implementation of the <code>OrderLog microservice</code>.</p>
+</li>
+<li>
+<p>We recommend using gRPC for invoking the <code>OrderLog</code> microservice.</p>
+</li>
+<li>
+<p>You can of course look at some examples of microservices to facilitate the implementation of your <code>OrderLog</code> service. In addition to the the microservices of the “Online Boutique” demo application, you can also look at the following tutorials:</p>
+<ul>
+<li><a href="https://realpython.com/python-microservices-grpc/">Python Microservices With gRPC</a></li>
+<li><a href="https://itnext.io/bff-pattern-with-go-microservices-using-rest-grpc-87d269bc2434">BFF Pattern with Go Microservices using REST &amp; gRPC</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="using-a-storage-backend-for-the-log">Using a storage backend for the log</h3>
+<p>Now the goal is to plug a real storage backend behind the <code>OrderLog</code> microservice in order to store the log: in this design, <code>OrderLog</code> is a stateless entry point that hides the implementation of the storage backend and forwards the requests to the (stateful) backend.</p>
+<p>You are free to choose the type of storage backend and the corresponding implementation. We recommend using a database and we suggest some typical examples:</p>
+<ul>
+<li>a key-value store (for example, Redis)</li>
+<li>a relational database (for example, MySQL or PostgreSQL)</li>
+<li>a document-oriented database (for example, MongoDB)</li>
+<li>…</li>
+</ul>
+<p>In any case, we advise you to use a simple data model for storing the orders details (advanced data management is outside of the scope of this course). Similarly, you are not required to deal with database transactional guarantees.</p>
+<p>Another important design question is the management of the storage backend. There are three main ways to architect the storage backend.</p>
+<ul>
+<li>(1) Using a managed external service: i.e., a storage service whose deployment (and provisioning/scaling) is fully managed by the cloud provider. See the <a href="https://cloud.google.com/products/databases">following page for a list of managed databases available in GCP</a>), such as <a href="https://cloud.google.com/sql">Cloud SQL</a> (relational) and <a href="https://cloud.google.com/firestore#">Firestore</a> (document oriented).</li>
+<li>(2) Using a non-managed external service: for example, you can install your own database instance in a GCE (Google Compute Engine) virtual machine.</li>
+<li>(3) Using a service inside GKE: i.e., in that case, your database is running as a containerized service managed by GKE, like the other services that compose your applications (but unlike most of the other services of the online boutique application, it is a stateful service).</li>
+</ul>
+<p>You are free to choose the any of the three approaches listed above. Note however that:</p>
+<ul>
+<li>A brief justification for your choice is expected in your report.</li>
+<li>Approaches (2) and (3) will be granted more points (if implemented correctly) because they inherently require more work.</li>
+<li>We recommend choosing either approach 1 (the most simple one) or approach 3 (the most integrated one with respect to GKE) .</li>
+</ul>
+<p>Important note: Checking the correct operation of your log will require the possibility to query the backend. There is no obligation for you to extend the implementation of the application (i.e., introducing a graphical/web interface to display the contents of the log) for this purpose; this would of course be more realistic but also time consuming. Instead, you can simply write a small script or connect to a web interface of the database to manually query it.</p>
+<h3 id="making-the-log-persistent">Making the log persistent</h3>
+<p>If this aspect has not already been addressed in the previous steps, the goal is to achieve <em>persistence</em> for your order log. This means that the online boutique application must be able to retrieve the contents of the log even across shutdowns and restarts (of the application, of the GKE cluster, of the GCE virtual machines, etc.).</p>
+<hr>
+<h2 id="comparing-k3s-and-k8sgke-bonus">Comparing K3s and K8s/GKE [Bonus]</h2>
+<p>In the first lab, we have used the K3s Kubernetes distribution deployed on the ECloud (private cloud) platform. In the present lab, we have mainly used GKE, a managed Kubernetes service provided by GCP.</p>
+<p>The goal of this step is to study, summarize and illustrate the main differences (in terms of architecture, components, general behavior, and supported features) between these two platforms.</p>
+<p>This comparative study can be performed in a conceptual way (e.g., by analizing the documentations of the two platforms, as well as the general documentation of the Kubernetes project) and/or on practical observations (using commands/tools such as <code>kubectl</code>).</p>
+<p>Hint: As a starting point, comparing the two versions of the first lab (as a reminder, here are the links to the <a href="https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/k3s/">K3s</a> and <a href="https://roparst.gricad-pages.univ-grenoble-alpes.fr/cloud-tutorials/k8s/">K8s</a> versions of the first lab) can be helpful, especially the parts about networking and the parts about the internals of the kubernetes cluster.</p>
+<hr>
+<h2 id="deploying-your-own-kubernetes-infrastructure-bonus">Deploying your own Kubernetes infrastructure [Bonus]</h2>
+<p>The goal of this step is to replace the managed Kubernetes infrastructure operated by the cloud provider (in this case, GKE operated by GCP) by a Kubernetes infrastructure under your control. This involves the following requirements:</p>
+<ul>
+<li>Control plane:
+<ul>
+<li>Allocating (virtual or physical) machines to host the <em>control plane</em> of your Kubernetes cluster</li>
+<li>Deploying and setting up the different software components of the Kubernetes control plane</li>
+</ul>
+</li>
+<li>Data plane:
+<ul>
+<li>Allocating (virtual or physical) machines to act as <em>worker nodes</em> in your Kubernetes cluster</li>
+<li>Deploying and setting up the different software components that must run on each worker node</li>
+</ul>
+</li>
+<li>Testing your infrastructure by deploying various demo applications/scenarios to validate diverse Kubernetes features (in particular, different types of controllers)</li>
+</ul>
+<p>Some recommendations:</p>
+<ul>
+<li>Using a minimalist Kubernetes distribution, like <a href="https://k3s.io/">k3s</a> or <a href="https://k0sproject.io/">k0s</a>, will significantly facilitate the setup work.</li>
+<li>In any case, it is important to identify the Kubernetes components that are really/strictly necessary for your needs.</li>
+<li>Using virtual machines (rather than physical machines) for the worker nodes is simpler and cheaper.</li>
+<li>Using containers (rather than virtual machines) to run the pods is simpler.</li>
+</ul>
+<hr>
+<h2 id="review-of-recent-publications-bonus">Review of recent publications [Bonus]</h2>
+<!-- Cloud infrastructures, micro-services applications, and orchestration are hot topics in the research community. Hence, there is a large number of papers published on these topics every year. Here is a non-exhaustive list of recent articles on topics related to this lab: -->
+<!-- - [Towards Modern Development of Cloud Applications](https://dl.acm.org/doi/10.1145/3593856.3595909) (a paper about [Service Weaver](https://serviceweaver.dev), a new programming framework by Google) -->
+<!-- - [A Cloud-Scale Characterization of Remote Procedure Calls](https://dl.acm.org/doi/abs/10.1145/3600006.3613156) -->
+<!-- - [Dissecting Overheads of Service Mesh Sidecars](https://dl.acm.org/doi/10.1145/3620678.3624652) -->
+<!-- - [Lifting the veil on Meta’s microservice architecture: Analyses of topology and request workflows](https://www.usenix.org/conference/atc23/presentation/huye) -->
+<!-- - [Blueprint: A Toolchain for Highly-Reconfigurable Microservices](https://www.microsoft.com/en-us/research/uploads/prod/2023/09/sosp2023-final39.pdf) -->
+<!-- We suggest that you make a review of one article that covers a topic related to this lab. This article can be selected in the list above or be another another article of your choice (but in the second case, you need to justify your choice). Reviewing an article involves doing some of the following things: -->
+<p>During the course, we have read different research papers (we refer here to the “Mandatory Readings”). We suggest you to select the article you enjoyed the most (during the whole semester – not necessarily an article related to Kubernetes or microservices) and to write a review of this article.</p>
+<p>Reviewing an article involves doing some of the following things:</p>
+<ul>
+<li>Summarizing the main contributions of the paper</li>
+<li>Discussing the main strengths and weaknesses of the study</li>
+<li>Explaining in details one or several results that you found especially interesting</li>
+<li>Making links between information presented in the paper and topics studied during the course and/or observations made during this lab</li>
+<li>Taking inspirations from ideas/experiments presented in the paper to extend your work on this lab</li>
+</ul>
+<p><strong>Warning</strong>: A simple summary of an article through copy/paste of existing content or minimal rephrasing will not give points</p>
+<!--
+
+### Step XXXX.c [optional]
+
+We now revisit the questions in the above sub-steps when taking into account replication (managed either manually or via autoscaling) for the microservice. Is it possible to achieve the same goals as above while adjusting the number of replicas independently for each version (e.g., having fewer replicas for `v2` when it receives a smaller fraction of the requests)? 
+
+### Step XXXX.e [optional]
+
+We now would like to set up a complete *continuous deployment pipeline*.
+This idea is to set up an automatic system in which whenever a new version of a service is commited in its source code repository, a sequence of actions is automatically triggered:
+
+* building and packaging the new version of code
+* running a set of unit tests (we will skip that part in this lab)
+* deploying the new version as a canary and sending a fraction of the requests to it.
+
+TBD : Contenu à discuter. Et pas sûr de conserver la version actuelle. Peut-être s'arrêter à l'étape précédente (ou fusionner avec) ?
+
+
+### Step XXXX.d: Making the log resilient [optional]
+
+If this aspect has not already been addressed in the previous sub-steps, the goal is to achieve *resilience* for your order log. This means addressing two types of concerns:
+
+* Fault tolerance and high availability via replication: ensuring that the log data remains available despite the occurrence of software or hardware faults;
+* Vertical and/or horizontal scaling: adjusting the provisioned resources of the storage backend to avoid performance hotspots.
+
+
+
+
+
+## Step XXXX: Managing batch jobs
+
+Maybe/TBD. Some links:
+
+* https://cloud.google.com/kubernetes-engine/docs/tutorials/kueue-intro
+* https://kueue.sigs.k8s.io
+* https://polleyg.dev/posts/batch-processing/
+* https://medium.com/google-cloud/kubernetes-running-background-tasks-with-batch-jobs-56482fbc853
+* https://cloud.google.com/kubernetes-engine/docs/tutorials/batch-ml-workload
+-->
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  
+
+
+</body></html>
